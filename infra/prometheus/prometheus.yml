@@ -1,0 +1,28 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: api-gateway
+    metrics_path: /metrics
+    static_configs:
+      - targets: ["api-gateway:8000"]
+  - job_name: onboarding-service
+    metrics_path: /metrics
+    static_configs:
+      - targets: ["onboarding-service:8000"]
+  - job_name: transaction-service
+    metrics_path: /metrics
+    static_configs:
+      - targets: ["transaction-service:8000"]
+  - job_name: alert-service
+    metrics_path: /metrics
+    static_configs:
+      - targets: ["alert-service:8000"]
+  - job_name: kyc-ai-service
+    metrics_path: /metrics
+    static_configs:
+      - targets: ["kyc-ai-service:8000"]
+  - job_name: fraud-ai-service
+    metrics_path: /metrics
+    static_configs:
+      - targets: ["fraud-ai-service:8000"]

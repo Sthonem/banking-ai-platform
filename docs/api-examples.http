@@ -1,0 +1,63 @@
+@gateway = http://localhost:8080
+@email = demo@example.com
+@password = ChangeMe123!
+
+### Register user
+POST {{gateway}}/onboarding/users
+Content-Type: application/json
+
+{
+  "name": "Demo Customer",
+  "email": "{{email}}",
+  "password": "{{password}}"
+}
+
+### Login
+POST {{gateway}}/onboarding/auth/login
+Content-Type: application/json
+
+{
+  "email": "{{email}}",
+  "password": "{{password}}"
+}
+
+### List users
+GET {{gateway}}/onboarding/users
+Authorization: Bearer {{token}}
+
+### Upload KYC document
+POST {{gateway}}/onboarding/users/{{user_id}}/documents
+Authorization: Bearer {{token}}
+Content-Type: multipart/form-data; boundary=KYCBOUNDARY
+
+--KYCBOUNDARY
+Content-Disposition: form-data; name="document"; filename="kyc.txt"
+Content-Type: text/plain
+
+Name: Demo Customer
+Date of Birth: 1990-01-01
+TC: 12345678901
+--KYCBOUNDARY--
+
+### Create transaction
+POST {{gateway}}/transactions
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "user_id": "{{user_id}}",
+  "amount": 9500,
+  "currency": "TRY",
+  "merchant": "ATM Cash Advance",
+  "location": "Berlin",
+  "device_id": "new-device-001",
+  "merchant_category": "cash"
+}
+
+### List transactions
+GET {{gateway}}/transactions?user_id={{user_id}}
+Authorization: Bearer {{token}}
+
+### Fraud scores for a transaction
+GET {{gateway}}/transactions/{{transaction_id}}/fraud-scores
+Authorization: Bearer {{token}}
