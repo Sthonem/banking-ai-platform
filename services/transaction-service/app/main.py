@@ -11,7 +11,6 @@ from banking_common.models import FraudScore, Transaction, User
 from banking_common.observability import configure_observability
 from banking_common.schemas import FraudScoreOut, TransactionCreate, TransactionOut
 
-
 publisher = KafkaPublisher()
 
 
@@ -32,7 +31,9 @@ def health() -> dict[str, str]:
 
 
 @app.post("/transactions", response_model=TransactionOut, status_code=status.HTTP_201_CREATED)
-async def create_transaction(payload: TransactionCreate, request: Request, db: Session = Depends(get_db)) -> Transaction:
+async def create_transaction(
+    payload: TransactionCreate, request: Request, db: Session = Depends(get_db)
+) -> Transaction:
     if db.get(User, payload.user_id) is None:
         raise HTTPException(status_code=404, detail="User not found")
 

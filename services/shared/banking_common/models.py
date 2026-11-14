@@ -70,7 +70,9 @@ class FraudScore(Base):
     __tablename__ = "fraud_scores"
 
     id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    transaction_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("transactions.id"), nullable=False, index=True)
+    transaction_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("transactions.id"), nullable=False, index=True
+    )
     score: Mapped[float] = mapped_column(Float, nullable=False)
     is_fraud: Mapped[bool] = mapped_column(Boolean, nullable=False)
     explanation: Mapped[dict] = mapped_column(JSONB, default=dict, nullable=False)

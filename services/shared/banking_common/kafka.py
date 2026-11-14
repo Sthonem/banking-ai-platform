@@ -9,7 +9,6 @@ from banking_common.config import get_settings
 from banking_common.events import build_event, parse_event
 from banking_common.metrics import event_failures_total
 
-
 logger = logging.getLogger(__name__)
 
 

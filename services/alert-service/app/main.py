@@ -8,7 +8,6 @@ from banking_common.events import FraudDetectedPayload, KycCompletedPayload, par
 from banking_common.kafka import consume_forever
 from banking_common.observability import configure_observability
 
-
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("alert-service")
 

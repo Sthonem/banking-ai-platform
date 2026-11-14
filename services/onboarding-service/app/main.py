@@ -16,7 +16,6 @@ from banking_common.observability import configure_observability
 from banking_common.schemas import KycResultOut, LoginRequest, TokenOut, UserCreate, UserOut
 from banking_common.security import create_access_token, hash_password, require_auth, verify_password
 
-
 publisher = KafkaPublisher()
 UPLOAD_DIR = Path(os.getenv("UPLOAD_DIR", "/tmp/banking-ai-documents"))
 

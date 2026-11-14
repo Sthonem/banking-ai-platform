@@ -18,6 +18,7 @@ The fraud service expects a `joblib` artifact shaped like:
         "location_change_km",
         "merchant_category_encoded",
         "device_seen_before",
+        "txn_count_5min",
     ],
 }
 ```

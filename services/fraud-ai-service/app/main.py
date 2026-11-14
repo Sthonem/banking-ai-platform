@@ -11,7 +11,13 @@ from sqlalchemy.orm import Session
 from banking_common.config import get_settings
 from banking_common.database import SessionLocal
 from banking_common.events import TransactionCreatedPayload, parse_event
-from banking_common.fraud import FEATURE_NAMES, encode_merchant_category, explain, fallback_score, validate_model_artifact
+from banking_common.fraud import (
+    FEATURE_NAMES,
+    encode_merchant_category,
+    explain,
+    fallback_score,
+    validate_model_artifact,
+)
 from banking_common.idempotency import mark_event_processed
 from banking_common.kafka import KafkaPublisher, consume_forever
 from banking_common.metrics import fraud_detected_total, fraud_score_histogram

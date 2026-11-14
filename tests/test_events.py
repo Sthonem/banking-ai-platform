@@ -1,6 +1,6 @@
 from uuid import UUID
 
-from banking_common.events import EventEnvelope, build_event, parse_event, UserRegisteredPayload
+from banking_common.events import EventEnvelope, UserRegisteredPayload, build_event, parse_event
 
 
 def test_event_envelope_roundtrip() -> None:

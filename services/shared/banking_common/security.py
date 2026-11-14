@@ -8,7 +8,6 @@ from passlib.context import CryptContext
 
 from banking_common.config import get_settings
 
-
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 bearer = HTTPBearer(auto_error=False)
 

@@ -1,5 +1,5 @@
-import os
 import asyncio
+import os
 
 import httpx
 import redis.asyncio as redis
@@ -8,7 +8,6 @@ from fastapi import FastAPI, HTTPException, Request, Response, status
 from banking_common.config import get_settings
 from banking_common.observability import configure_observability
 from banking_common.security import decode_token
-
 
 app = FastAPI(title="api-gateway")
 configure_observability(app, "api-gateway")

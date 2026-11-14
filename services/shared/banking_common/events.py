@@ -63,7 +63,9 @@ EVENT_PAYLOADS: dict[str, type[BaseModel]] = {
 }
 
 
-def build_event(event_type: str, payload: BaseModel | dict[str, Any], correlation_id: str | None = None) -> dict[str, Any]:
+def build_event(
+    event_type: str, payload: BaseModel | dict[str, Any], correlation_id: str | None = None
+) -> dict[str, Any]:
     payload_model = EVENT_PAYLOADS[event_type]
     validated = payload if isinstance(payload, BaseModel) else payload_model.model_validate(payload)
     return EventEnvelope(

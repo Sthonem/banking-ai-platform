@@ -5,7 +5,6 @@ import numpy as np
 from sklearn.ensemble import IsolationForest
 from sklearn.preprocessing import StandardScaler
 
-
 MODEL_DIR = Path("models")
 MODEL_PATH = MODEL_DIR / "fraud_isolation_forest.joblib"
 

@@ -17,7 +17,6 @@ from banking_common.metrics import kyc_approved_total, kyc_rejected_total
 from banking_common.models import KycResult, KycStatus, User, UserStatus
 from banking_common.observability import configure_observability
 
-
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("kyc-ai-service")
 
